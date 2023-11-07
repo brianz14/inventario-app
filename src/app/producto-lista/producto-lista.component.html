@@ -1,27 +1,38 @@
 
 <div class="container">
-    <div class="container text-center" style="margin: 30px;">
-        <h3>
-            Sistema de Inventario
-        </h3>
-    </div>
-    <table class="table table-striped table-hover align-middle">
-        <thead class="table-dark" >
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Existencia</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let pro of productos">
-            <th scope="row">{{pro.idProducto}}</th>
-            <td>{{pro.descripcion}}</td>
-            <td>{{pro.precio}}</td>
-            <td>@{{pro.existencia}}</td>
-          </tr>
-          
-        </tbody>
-      </table>
+  <div class="container text-center" style="margin: 30px;">
+    <h3>
+      Sistema de Inventario
+    </h3>
+  </div>
+  <table class="table table-striped table-hover align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Existencia</th>
+        <th scope="col" class="text-center">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pro of productos">
+        <th scope="row">{{pro.idProducto}}</th>
+        <td>{{pro.descripcion}}</td>
+        <td>{{pro.precio}}</td>
+        <td>{{pro.existencia}}</td>
+        <td class="text-center">
+          <div>
+            <button (click)="editarProducto(pro.idProducto)"
+              class="btn btn-warning btn-sm me-3">
+              Editar</button>
+            <button (click)="eliminarProducto(pro.idProducto)"
+              class="btn btn-danger btn-sm me-3">
+              Eliminar</button>
+          </div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
 </div>

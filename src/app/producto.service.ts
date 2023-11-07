@@ -23,4 +23,16 @@ export class ProductoService {
 
     return this.clienteHttp.post(this.urb_base,producto); //le enciamos el producto
   }
+
+  obtenerProductoPorId(id: number){
+    return this.clienteHttp.get<Producto>(`${this.urb_base}/${id}`);
+  }
+
+  actualizarProductoPorId(id:number,producto:Producto):Observable<Object>{
+    return this.clienteHttp.put(`${this.urb_base}/${id}`,producto);
+  }
+
+  eliminarProducto(id:number):Observable<Object>{
+    return this.clienteHttp.delete(`${this.urb_base}/${id}`);
+  }
 }
